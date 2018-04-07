@@ -6,9 +6,9 @@
 
 
 输入信息：
-!(https://github.com/barbune/forum/tree/master/forum/screenshots/1.jpg)
+ ![image](https://github.com/barbune/forum/tree/master/forum/screenshots/1.jpg)
 
 
 得到数据返回到前台并用Echarts渲染：
-!(https://github.com/barbune/forum/tree/master/forum/screenshots/2.jpg)
-!(https://github.com/barbune/forum/tree/master/forum/screenshots/3.jpg)
+ ![image](https://github.com/barbune/forum/tree/master/forum/screenshots/2.jpg)
+ ![image](https://github.com/barbune/forum/tree/master/forum/screenshots/3.jpg)
