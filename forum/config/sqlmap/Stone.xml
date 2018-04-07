@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="content">
+
+    <!-- 查询 -->
+
+    <select id="findStoneByCategories" resultType="domain.Stone" parameterType="String">
+        SELECT * FROM t_stone  where stone_categories = #{stone_categories}
+    </select>
+    <select id="findStoneByWeighingDate" resultType="domain.Stone" parameterType="String">
+        SELECT * FROM t_stone where weighing_date = #{weighing_date}
+    </select>
+    <select id="addSumByCategories" resultType="float" parameterType="String">
+        SELECT SUM(sheer_weight) from t_stone where stone_categories= #{stone_categories}
+    </select>
+    <select id="addSumByWeighingDate" resultType="Float" parameterType="String">
+       SELECT SUM(sheer_weight) FROM t_stone where weighing_date = #{weighing_date}
+    </select>
+    <select id="findStone" resultType="domain.Stone">
+        SELECT * FROM t_stone
+    </select>
+
+    <!-- 增加 -->
+
+    <insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List">
+        <!--<selectKey resultType="long" keyProperty="studentId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>-->
+        INSERT INTO t_stone(stone_categories, sheer_weight,weighing_date)
+        VALUES
+        <foreach collection="list" item="data" separator="," index="index">
+            (#{data.stone_categories},#{data.sheer_weight},#{data.weighing_date})
+        </foreach>
+    </insert>
+</mapper>
