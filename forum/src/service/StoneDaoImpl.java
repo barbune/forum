@@ -4,8 +4,11 @@ import dao.StoneDao;
 import domain.Stone;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.w3c.dom.ls.LSException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class StoneDaoImpl extends SqlSessionDaoSupport implements StoneDao {
     @Override
@@ -47,5 +50,12 @@ public class StoneDaoImpl extends SqlSessionDaoSupport implements StoneDao {
         SqlSession sqlSession = this.getSqlSession();
         Float sum = sqlSession.selectOne("content.addSumByWeighingDate",date);
         return sum;
+    }
+
+    @Override
+    public List<Stone> findStoneById(Map<String,Object> map) throws Exception {
+        SqlSession sqlSession = this.getSqlSession();
+        List<Stone> listStone = sqlSession.selectList("content.findStoneById",map);
+        return listStone;
     }
 }

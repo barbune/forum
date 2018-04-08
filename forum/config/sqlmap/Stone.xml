@@ -20,6 +20,10 @@
     <select id="findStone" resultType="domain.Stone">
         SELECT * FROM t_stone
     </select>
+    <!--分页-->
+    <select id="findStoneById" resultType="domain.Stone" parameterType="java.util.Map">
+      SELECT * FROM t_stone LIMIT #{arg1},#{arg2}
+    </select>
 
     <!-- 增加 -->
 

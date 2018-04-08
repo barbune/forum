@@ -7,20 +7,32 @@ package test.java.service;
 
 import dao.StoneDao;
 import domain.Stone;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import test.java.test;
 
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:mvc-dispatcher-servlet.xml"})
 public class StoneDaoImplTests {
     private ApplicationContext applicationContext;
-
+    private static Logger logger = Logger.getLogger(StoneDaoImplTests.class);
+    @Resource
+    private StoneDao stoneDao;
     @Before
     public void setUp() throws Exception
     {
@@ -62,12 +74,19 @@ public class StoneDaoImplTests {
         List<Stone> listStone = stoneDao.findStoneByWeighingDate("20170701");
         System.out.println(listStone);
     }
-    @Test
+
     public void testaddSumByWeighingDate() throws Exception{
         StoneDao stoneDao =(StoneDao) applicationContext.getBean("stoneDao");
         Float f = stoneDao.addSumByWeighingDate("20170711");
         System.out.println(f);
     }
-
+    @Test
+    public void testfindStoneById() throws Exception{
+        Map<String,Object> map = new HashMap<>();
+        map.put("arg1",0);
+        map.put("arg2",5);
+        List<Stone> stoneList = stoneDao.findStoneById(map);
+        logger.info(stoneList);
+    }
 
 }
