@@ -6,7 +6,7 @@
 
 
 输入信息：
- ![alt text](https://github.com/barbune/forum/tree/master/forum/screenshots/1.jpg)
+[![](https://github.com/barbune/forum/tree/master/forum/screenshots/1.jpg)]
 
 
 得到数据返回到前台并用Echarts渲染：
