@@ -10,9 +10,10 @@
 
 
 得到数据返回到前台并用Echarts渲染：
- ![image](https://github.com/barbune/forum/tree/master/forum/screenshots/2.jpg)
- ![image](https://github.com/barbune/forum/tree/master/forum/screenshots/3.jpg)
+ ![][table-2]
+ ![][table-3]
 
 
 [table-1]:/forum/screenshots/1.jpg
-[table-2]:
+[table-2]:/forum/screenshots/2.jpg
+[table-3]:/forum/screenshots/3.jpg
